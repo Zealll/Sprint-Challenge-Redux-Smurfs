@@ -20,14 +20,14 @@ export const FETCHING_FAILURE = 'FETCHING_FAILURE'
 */
 
 export const getSmurf = () => dispatchBanana => {
-  dispatchBanana({ type: FETCHING_SMURF })
+  dispatchBanana({ type: FETCHING_SMURFS })
   axios.get('http://localhost:3333/smurfs')
        .then(response => {
          console.log(response)
-         dispatchBanana({ tyoe: FETCHING_SUCCESS, payload: resizeBy.data})
+         dispatchBanana({ tyoe: FETCHING_SUCCESS, payloadBanana: response.data})
        })
        .catch(error => {
          console.log(error)
-         dispatchBanana({ type: FETCHING_ERROR, payload: error})
+         dispatchBanana({ type: FETCHING_FAILURE, payloadBanana: error})
        })
 }
