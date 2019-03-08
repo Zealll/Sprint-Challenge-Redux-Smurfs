@@ -10,7 +10,6 @@ class SmurfForm extends React.Component {
     }
 
     handleChange = e => {
-        e.preventDefault()
         this.setState({ 
             [e.target.name]: e.target.value
         })

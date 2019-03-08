@@ -8,6 +8,7 @@ export const FETCHING_SMURFS = 'FETCHING_SMURFS'
 export const FETCHING_SUCCESS = 'FETCHING_SUCCESS'
 export const FETCHING_FAILURE = 'FETCHING_FAILURE'
 export const ADDING_SMURF = 'ADDING_SMURF'
+export const DELETING_SMURF = 'DELETING_SMURF'
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -41,4 +42,15 @@ export const addSmurf = smurf => dispatchBanana => {
        .catch(error => {
          console.log(error)
        })
+}
+
+export const deleteSmurf = id => dispatchBanana => {
+  dispatchBanana({ type: DELETING_SMURF})
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+       .then(response => {
+         dispatchBanana({ type: FETCHING_SUCCESS, payloadBanana: response.data})
+       })
+       .catch(error => {
+         dispatchBanana({ type: FETCHING_FAILURE, payloadBanana: error })
+       }) 
 }

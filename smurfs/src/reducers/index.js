@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { FETCHING_SMURFS, FETCHING_SUCCESS, FETCHING_FAILURE, ADDING_SMURF } from '../actions'
+import { FETCHING_SMURFS, FETCHING_SUCCESS, FETCHING_FAILURE, ADDING_SMURF, DELETING_SMURF } from '../actions'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -53,7 +53,13 @@ function bananaReducer (stateBanana = initialBanana, actionBanana) {
       return {
         ...stateBanana,
         addingSmurf: true,
-        error: null
+        error: actionBanana.payloadBanana
+      }
+    case DELETING_SMURF:
+      return {
+        ...stateBanana,
+        deletingSmurf: true,
+        error: actionBanana.payloadBanana
       }
 
     default: return stateBanana

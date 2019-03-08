@@ -21,14 +21,14 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         {this.props.smurfs.map(smurf => {
-          return <Smurf smurf={smurf} key={smurf.name} />
+          return <Smurf smurf={smurf} key={smurf.id} />
         })}
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToPropsBanana(state) {
   return {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,
@@ -36,4 +36,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(App)
+export default connect(mapStateToPropsBanana, { getSmurfs })(App)
