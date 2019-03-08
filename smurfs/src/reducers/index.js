@@ -29,7 +29,7 @@ const initialBanana = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
-function reducer (stateBanana = initialBanana, actionBanana) {
+function reducerBanana (stateBanana = initialBanana, actionBanana) {
   switch(actionBanana.type) {
     case FETCHING_SMURFS:
       return {
@@ -48,7 +48,9 @@ function reducer (stateBanana = initialBanana, actionBanana) {
         ...stateBanana,
         error: actionBanana.payloadBanana
       }
+
+    default: return stateBanana
   }
 }
 
-export default reducer
+export default reducerBanana

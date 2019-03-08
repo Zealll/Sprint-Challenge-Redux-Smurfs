@@ -19,12 +19,11 @@ export const FETCHING_FAILURE = 'FETCHING_FAILURE'
    D - deleteSmurf
 */
 
-export const getSmurf = () => dispatchBanana => {
+export const getSmurfs = () => dispatchBanana => {
   dispatchBanana({ type: FETCHING_SMURFS })
   axios.get('http://localhost:3333/smurfs')
        .then(response => {
-         console.log(response)
-         dispatchBanana({ tyoe: FETCHING_SUCCESS, payloadBanana: response.data})
+         dispatchBanana({ type: FETCHING_SUCCESS, payloadBanana: response.data})
        })
        .catch(error => {
          console.log(error)
