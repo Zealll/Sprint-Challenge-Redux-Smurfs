@@ -8,10 +8,17 @@ const Smurf = props => {
     }
 
     return (
-        <div>
-            <h3>
-                {props.smurf.name} {props.smurf.age} {props.smurf.height}
-            </h3>
+        <div className='list'>
+            <div className='chars'>
+                <strong>Name:</strong> {props.smurf.name}
+            </div>
+            <div className='chars'>
+                <strong>Age:</strong> {props.smurf.age}
+            </div>
+            <div className='chars'>
+                <strong>Height:</strong> {props.smurf.height}
+            </div>
+            
             <button onClick={handleClick}>Delete</button>
         </div>
     )

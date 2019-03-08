@@ -20,9 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        {this.props.smurfs.map(smurf => {
-          return <Smurf smurf={smurf} key={smurf.id} />
-        })}
+        {this.props.smurfs.map(smurf => <Smurf smurf={smurf} key={smurf.id} />)}
       </div>
     );
   }
