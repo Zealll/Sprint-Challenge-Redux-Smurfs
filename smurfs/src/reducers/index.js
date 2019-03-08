@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { FETCHING_SMURFS, FETCHING_SUCCESS, FETCHING_FAILURE } from '../actions'
+import { FETCHING_SMURFS, FETCHING_SUCCESS, FETCHING_FAILURE, ADDING_SMURF } from '../actions'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -18,7 +18,8 @@ import { FETCHING_SMURFS, FETCHING_SUCCESS, FETCHING_FAILURE } from '../actions'
 const initialBanana = { 
   smurfs: [],
   fetchingSmurfs: false,
-  error: null
+  error: null,
+  addingSmurf: false
 }
 
 /*
@@ -29,7 +30,7 @@ const initialBanana = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
-function reducerBanana (stateBanana = initialBanana, actionBanana) {
+function bananaReducer (stateBanana = initialBanana, actionBanana) {
   switch(actionBanana.type) {
     case FETCHING_SMURFS:
       return {
@@ -48,9 +49,15 @@ function reducerBanana (stateBanana = initialBanana, actionBanana) {
         ...stateBanana,
         error: actionBanana.payloadBanana
       }
+    case ADDING_SMURF:
+      return {
+        ...stateBanana,
+        addingSmurf: true,
+        error: null
+      }
 
     default: return stateBanana
   }
 }
 
-export default reducerBanana
+export default bananaReducer

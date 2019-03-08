@@ -7,6 +7,7 @@ import axios from 'axios'
 export const FETCHING_SMURFS = 'FETCHING_SMURFS'
 export const FETCHING_SUCCESS = 'FETCHING_SUCCESS'
 export const FETCHING_FAILURE = 'FETCHING_FAILURE'
+export const ADDING_SMURF = 'ADDING_SMURF'
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -28,5 +29,16 @@ export const getSmurfs = () => dispatchBanana => {
        .catch(error => {
          console.log(error)
          dispatchBanana({ type: FETCHING_FAILURE, payloadBanana: error})
+       })
+}
+
+export const addSmurf = smurf => dispatchBanana => {
+  dispatchBanana({ type: ADDING_SMURF })
+  axios.post('http://localhost:3333/smurfs', smurf)
+       .then(response => {
+         dispatchBanana({ type: FETCHING_SUCCESS, payloadBanana: response.data})
+       })
+       .catch(error => {
+         console.log(error)
        })
 }
